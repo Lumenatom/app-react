@@ -1,0 +1,41 @@
+
+  
+  .content_post {
+    padding: 10px;
+    
+  }
+  .content_post input {
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 25px;
+  }
+
+  .p {
+    color: #fff;
+    font-size: 25px;
+    margin-bottom: 25px;
+  }
+
+  .post_btn {
+    background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+  width: 100px;
+  border-radius: 5px;
+  margin-right: 10px;
+  
+  }
+
+  .post_send {
+    display: flex;
+    /* flex-direction: column; */
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+  }
