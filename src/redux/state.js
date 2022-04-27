@@ -49,7 +49,7 @@ let store = {
       likeCount: 0
     };
     this._state.profilePage.postsData.unshift(newPost);
-   this._callSubscriber(this._state);
+    this._callSubscriber(this._state);
   },
 
   addMessage(postMessage) {
