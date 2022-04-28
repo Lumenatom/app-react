@@ -13,7 +13,6 @@ import addMessage from './redux/state';
 
 
 
-
 const App = (props) => {
 
 
@@ -26,7 +25,7 @@ const App = (props) => {
         <div className='content'>
           <Routes>
             <Route path='/profile' element={<Profile
-              postsData={props.state.profilePage.postsData} addPost={props.addPost} />} />
+              profilePage={props.state.profilePage}  dispatch={props.dispatch} />} />
             <Route path='/messages/*' element={<Messages
               dialogsData={props.state.messagePage.dialogsData}
               messagesData={props.state.messagePage.messagesData} addMessage={props.addMessage} />} />

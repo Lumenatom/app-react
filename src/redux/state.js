@@ -6,7 +6,8 @@ let store = {
         { id: 1, message: 'Как ты?', likeCount: 15 },
         { id: 2, message: 'ахахахах', likeCount: 234 },
         { id: 3, message: 'How are you??????' },
-      ]
+      ],
+      newPostText: 'Social...'
     },
     messagePage: {
       dialogsData: [
@@ -35,23 +36,17 @@ let store = {
       ]
     },
   },
-  getState() {
-    return this._state;
-  },
-  callSubscriber() {
+  _callSubscriber() {
     console.log(1212);
   },
 
-  addPost(postMessage) {
-    let newPost = {
-      id: 5,
-      message: postMessage,
-      likeCount: 0
-    };
-    this._state.profilePage.postsData.unshift(newPost);
-    this._callSubscriber(this._state);
+  subscribe(observer) {
+    this._callSubscriber = observer;
   },
 
+  getState() {
+    return this._state;
+  },
   addMessage(postMessage) {
 
     let newMessage = {
@@ -59,15 +54,31 @@ let store = {
       message: postMessage,
     };
     this._state.messagePage.messagesData.push(newMessage);
+    this._state.profilePage.newPostText = '';
     this._callSubscriber(this._state);
   },
-
-  subscribe(observer) {
-    this._callSubscriber = observer;
+  dispatch(action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 5,
+        message: postMessage,
+        likeCount: 0
+      };
+      this._state.profilePage.postsData.unshift(newPost);
+      this._callSubscriber(this._state);
+      this._state.profilePage.newPostText = '';
+    } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    } else if (action.type === 'ADD-MESSAGE') {
+      let newMessage = {
+        id: 5,
+        message: postMessage,
+      };
+      this._state.messagePage.messagesData.push(newMessage);
+      this._callSubscriber(this._state);
+    }
   }
-
-
-
 }
 
 

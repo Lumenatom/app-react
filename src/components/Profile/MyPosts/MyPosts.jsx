@@ -16,17 +16,20 @@ const MyPosts = (props) => {
   let newPostElement = React.createRef();
 
   let adddPost = () => {
-    let text = newPostElement.current.value;
-    props.addPost(text);
-    newPostElement.current.value = '';
+    props.dispatch({type: 'ADD-POST'});
 
+  }
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
+    props.dispatch(action);
   }
 
   return (
     <div className={classes.content_post}>
       <p className={classes.p} >My posts</p>
       <div className={classes.post_send}>
-        <input ref={newPostElement} placeholder='your news...' />
+        <input onChange={onPostChange} ref={newPostElement} value={props.newPostText} />
         <button onClick={adddPost} className={classes.post_btn}>Send</button>
         <button className={classes.post_btn}>Remove</button>
       </div>
