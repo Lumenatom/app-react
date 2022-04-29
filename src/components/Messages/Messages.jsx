@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/state';
 import Dialog from './Diaolog/Dialog';
 import Message from './Message/Message';
 import classes from './Messages.module.css';
@@ -20,23 +21,26 @@ const Messages = (props) => {
       <Dialog name={dialog.name} id={dialog.id} />
     )
   })
-  
+
   let messageElement = props.messagesData.map((message) => {
     return (
       <Message message={message.message} />
-  
+
     )
   })
 
-  let sendMessage = React.createRef();
 
-  let addMessage = () => {
-    let message = sendMessage.current.value;
-    props.addMessage(message);
-    sendMessage.current.value = '';
-  }
+  
+let onSendMessageClick = () => {
+props.store.dispatch(sendMessageCreator())
+}
+let onNewMessageClick = (e) => {
+let body = e.target.value;
+props.store.dispatch(updateNewMessageBodyCreator(body))
+}
+  let newMessageBody = props.state.newMessageBody;
 
-
+  let state = props.store.getState().messagePage;
   return (
 
     <div className={classes.dialogs}>
@@ -45,9 +49,15 @@ const Messages = (props) => {
         {dialogsElement}
       </div>
       <div className={classes.messages_item}>
-        {messageElement}
-        <textarea ref={sendMessage} ></textarea>
-        <button onClick={addMessage} > Отправить новое сообщение</button>
+        <div>
+          {messageElement}
+        </div>
+        <div>
+          <textarea value={newMessageBody}onChange={onNewMessageClick} ></textarea>
+        </div>
+        <div>
+          <button onClick={onSendMessageClick} > Отправить новое сообщение</button>
+        </div>
       </div>
     </div>
   );
