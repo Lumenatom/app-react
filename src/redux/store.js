@@ -31,15 +31,16 @@ let store = {
       newMessageBody: ''
     },
   },
-  _callSubscriber() {
+  _subscriber() {
     console.log(1212);
   },
   subscribe(observer) {
-    this._callSubscriber = observer;
+    this._Subscriber = observer;
   },
   getState() {
     return this._state;
   },
+  
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
     this._state.messagePage = messageReducer(this._state.messagePage, action);
