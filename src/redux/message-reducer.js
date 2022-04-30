@@ -16,3 +16,7 @@ export const messageReducer = (state, action) => {
             return state;
     }
 }
+
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE })
+export const updateNewMessageBodyCreator = (body) =>
+    ({ type: UPDATE_NEW_POST_BODY, body: body })
