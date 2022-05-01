@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
 import Header from './components/Header/Header';
 import Messages from './components/Messages/Messages';
+import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
 import News from './components/News/News';
@@ -22,10 +23,9 @@ const App = (props) => {
         <div className='content'>
           <Routes>
             <Route path='/profile' element={<Profile
-              profilePage={props.state.profilePage}  dispatch={props.dispatch} />} />
-            <Route path='/messages/*' element={<Messages
-              dialogsData={props.state.messagePage.dialogsData}
-              messagesData={props.state.messagePage.messagesData} store={props.store} state={props.state.messagePage} />} />
+              store={props.store} />} />
+            <Route path='/messages/*' element={<MessagesContainer
+               store={props.store}  />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
             <Route path='/settings' element={<Settings />} />

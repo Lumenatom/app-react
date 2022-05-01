@@ -7,14 +7,6 @@ import Post from './Post/Post';
 
 
 const MyPosts = (props) => {
-  let addPost = () => {
-    props.addPost();
-
-  }
-  let onPostChange = () => {
-    let text = newPostElement.current.value;
-    props.updateNewPostText(text);
-  }
 
   let postElement = props.postsData.map((post) => {
     return (
@@ -24,8 +16,13 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
 
-  
-  
+  let addPost = () => {
+    props.addPost();
+  }
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    props.updateNewPostText(text);
+  }
 
   return (
     <div className={classes.content_post}>

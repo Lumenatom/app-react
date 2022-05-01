@@ -5,42 +5,35 @@ import Message from './Message/Message';
 import classes from './Messages.module.css';
 
 
-
-
-
-
-
-
-
-
-
 const Messages = (props) => {
 
-  let dialogsElement = props.dialogsData.map(dialog => {
+  let onNewMessageClick = (e) => {
+    let body = e.target.value;
+    props.updateNewMessageBody(body);
+  }
+
+  let onSendMessageClick = () => {
+    props.sendMessage();
+  }
+
+  let state = props.messagePage;
+
+  let dialogsElement = props.dialogsElement.map(dialog => {
     return (
       <Dialog name={dialog.name} id={dialog.id} />
     )
   })
 
-  let messageElement = props.messagesData.map((message) => {
+  let messageElement = props.messageElement.map((message) => {
     return (
       <Message message={message.message} />
 
     )
   })
 
+  let newMessageBody = state.newMessageBody;
 
-  
-let onSendMessageClick = () => {
-props.store.dispatch(sendMessageCreator())
-}
-let onNewMessageClick = (e) => {
-let body = e.target.value;
-props.store.dispatch(updateNewMessageBodyCreator(body))
-}
-  let newMessageBody = props.state.newMessageBody;
 
-  let state = props.store.getState().messagePage;
   return (
 
     <div className={classes.dialogs}>
@@ -53,7 +46,7 @@ props.store.dispatch(updateNewMessageBodyCreator(body))
           {messageElement}
         </div>
         <div>
-          <textarea value={newMessageBody}onChange={onNewMessageClick} ></textarea>
+          <textarea value={newMessageBody} onChange={onNewMessageClick} ></textarea>
         </div>
         <div>
           <button onClick={onSendMessageClick} > Отправить новое сообщение</button>
