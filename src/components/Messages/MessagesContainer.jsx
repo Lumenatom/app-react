@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/message-reducer';
+import StoreContext from '../../StoreContext';
 import Messages from './Messages';
 
 
@@ -14,28 +15,31 @@ import Messages from './Messages';
 
 const MessagesContainer = (props) => {
 
-  let onNewMessageChange = (body) => {
-    props.store.dispatch(updateNewMessageBodyCreator(body))
+  return <StoreContext.Consumer>{
+    (store) => {
+      let onNewMessageChange = (body) => {
+        store.dispatch(updateNewMessageBodyCreator(body))
+      }
+
+      let onSendMessageClick = () => {
+        store.dispatch(sendMessageCreator())
+      }
+
+      let state = store.getState().messagePage;
+
+      let dialogsElement = store.getState().messagePage.dialogsData;
+      let messageElement = store.getState().messagePage.messagesData;
+
+      return <Messages updateNewMessageBody={onNewMessageChange}
+        sendMessage={onSendMessageClick}
+        messagePage={state}
+        dialogsElement={dialogsElement}
+        messageElement={messageElement} />
+    }
   }
-
-  let onSendMessageClick = () => {
-    props.store.dispatch(sendMessageCreator())
-  }
-
-  let state = props.store.getState().messagePage;
-
-  let dialogsElement = props.store.getState().messagePage.dialogsData;
-  let messageElement = props.store.getState().messagePage.messagesData;
+  </StoreContext.Consumer>
 
 
-
-  return (
-    <Messages updateNewMessageBody={onNewMessageChange}
-      sendMessage={onSendMessageClick}
-      messagePage={state}
-      dialogsElement={dialogsElement} 
-      messageElement={messageElement}/>
-  );
 }
 
 export default MessagesContainer;
