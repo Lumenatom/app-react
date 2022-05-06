@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import { sendMessageCreator, updateNewMessageBodyCreator } from '../../redux/message-reducer';
-import Dialog from './Diaolog/Dialog';
+import React from 'react';
+import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import classes from './Messages.module.css';
 
@@ -18,13 +17,13 @@ const Messages = (props) => {
 
   let state = props.messagePage;
 
-  let dialogsElement = props.dialogsElement.map(dialog => {
+  let dialogsElement = props.dialogsElement.map((dialog) => {
     return (
       <Dialog name={dialog.name} id={dialog.id} />
     )
   })
 
-  let messageElement = props.messageElement.map((message) => {
+  let messageElement = props.messagePage.map((message) => {
     return (
       <Message message={message.message} />
 
