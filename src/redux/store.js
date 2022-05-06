@@ -10,7 +10,7 @@ let store = {
         { id: 2, message: 'pbsdsd', likeCount: 234 },
         { id: 3, message: 'How are you??????' },
       ],
-      newPostText: 'Social...'
+      newPostText: '',
     },
     messagePage: {
       dialogsData: [

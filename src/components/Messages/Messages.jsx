@@ -19,13 +19,13 @@ const Messages = (props) => {
 
   let dialogsElement = props.dialogsElement.map((dialog) => {
     return (
-      <Dialog name={dialog.name} id={dialog.id} />
+      <Dialog name={dialog.name} key={dialog.id} id={dialog.id} />
     )
   })
 
   let messageElement = props.messagePage.map((message) => {
     return (
-      <Message message={message.message} />
+      <Message message={message.message} key = {message.id} />
 
     )
   })
