@@ -45,7 +45,7 @@ const Messages = (props) => {
           {messageElement}
         </div>
         <div>
-          <textarea value={newMessageBody} onChange={onNewMessageClick} ></textarea>
+          <textarea  onChange={onNewMessageClick} value={newMessageBody} ></textarea>
         </div>
         <div>
           <button onClick={onSendMessageClick} > Отправить новое сообщение</button>
