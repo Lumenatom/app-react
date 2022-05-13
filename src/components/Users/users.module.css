@@ -1,0 +1,19 @@
+.usersPage {
+    padding: 15px;
+}
+
+.itemsPage {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.selectedPage {
+    font-weight: bold;
+    color: #fff;
+}
+
+.countPage {
+    display: flex;
+    font-size: 20px;
+    color: rgb(179, 178, 178);
+}
