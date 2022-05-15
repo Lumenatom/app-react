@@ -10,39 +10,45 @@ let Users = (props) => {
         pages.push(i)
     }
     return <div className={style.usersPage}>
-        <div className={style.itemsPage}>
-            <div className={style.countPage}>{
-                pages.map(p => {
-                    return <div className={props.currentPage === p && style.selectedPage}
-                        onClick={(e) => { props.onPageChanged(p); }}> {p}</div>
-                })
-            }</div>
+        <div className={style.item}>
+            <div className={style.itemsPage}>
+                <div className={style.countPage}>{
+                    pages.map(p => {
+                        return <div className={props.currentPage === p && style.selectedPage}
+                            onClick={(e) => { props.onPageChanged(p); }}> {p}</div>
+                    })
+                }</div>
+            </div>
+            {
+                props.users.map(u => <div key={u.id}>
+                    <div className={style.item_users}>
+                        <div className={style.users}>
+                            <div>
+                                <img className={style.img} src={u.photos.small != null ? u.photos.small : userPhoto} />
+                            </div>
+                            <div>
+                                {u.followed
+                                    ? <button onClick={() => { props.unfollow(u.id) }} >Unfollow</button>
+                                    : <button onClick={() => { props.follow(u.id) }} >Follow</button>
+                                }
+                            </div>
+                        </div>
+                        <div className={style.location}>
+                            <div>
+                                <div>{u.name}</div>
+                                <div>{u.status}</div>
+                            </div>
+                            <div>
+                                <div>{"u.location.city"}</div>
+                                <div>{"u.location.country"}</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>)
+            }
         </div>
-        {
-            props.users.map(u => <div key={u.id}>
-                <div>
-                    <div>
-                        <img src={u.photos.small != null ? u.photos.small : userPhoto} />
-                    </div>
-                    <div>
-                        {u.followed
-                            ? <button onClick={() => { props.unfollow(u.id) }} >Unfollow</button>
-                            : <button onClick={() => { props.follow(u.id) }} >Follow</button>
-                        }
-                    </div>
-                </div>
-                <div>
-                    <div>
-                        <div>{u.name}</div>
-                        <div>{u.status}</div>
-                    </div>
-                    <div>
-                        <div>{"u.location.city"}</div>
-                        <div>{"u.location.country"}</div>
-                    </div>
-                </div>
-            </div>)
-        }
+
     </div >
 }
 

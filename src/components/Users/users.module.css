@@ -5,6 +5,8 @@
 .itemsPage {
     display: flex;
     flex-wrap: nowrap;
+    margin-bottom: 50px;
+
 }
 
 .selectedPage {
@@ -16,4 +18,35 @@
     display: flex;
     font-size: 20px;
     color: rgb(179, 178, 178);
+    cursor: pointer;
+
+}
+
+.users {
+    display: flex;
+    flex-direction: column;
+}
+
+.img {
+    border-radius: 50%;
+}
+
+.location {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    color: #fff;
+    font-size: 20px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+}
+
+.item_users {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+    border: 2px solid black;
 }
