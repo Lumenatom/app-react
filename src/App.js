@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
 import './App.css';
-import Header from './components/Header/Header';
+import HeaderContainer from './components/Header/HeaderContainer';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
@@ -17,7 +17,7 @@ const App = (props) => {
   return (
     < BrowserRouter>
       <div className='app-wraper'>
-        <Header />
+        <HeaderContainer />
         <Navbar />
         <div className='content'>
           <Routes>

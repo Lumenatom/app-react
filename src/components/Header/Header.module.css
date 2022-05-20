@@ -1,12 +1,28 @@
 .logo {
-    width: 50px;
-  }
-  
-  .header {
-    grid-area: header;
-    height: auto;
-    background-color:rgb(49, 47, 50);
-    padding: 10px;
-   
-    border-radius: 5px;
-  }
+  width: 50px;
+}
+
+.header {
+  grid-area: header;
+  height: auto;
+  background-color: rgb(49, 47, 50);
+  padding: 10px;
+
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.loginBlock {
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.nav {
+  display: flex;
+  color: #fff;
+  text-decoration: none;
+  font-size: 35px;
+  margin-right: 20px;
+}
