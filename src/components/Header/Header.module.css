@@ -16,6 +16,8 @@
 .loginBlock {
   display: flex;
   justify-content: flex-end;
+  color: #fff;
+  font-size: 25px;
 
 }
 
