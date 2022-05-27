@@ -13,8 +13,6 @@ import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
 
 
-
-
 const App = (props) => {
   return (
     < BrowserRouter>
@@ -25,7 +23,6 @@ const App = (props) => {
           <Routes>
             <Route path='/profile/:profileId' element={<ProfileContainer />} />
             <Route path='/profile' element={<ProfileContainer />} />
-
             <Route path='/messages/*' element={<MessagesContainer />} />
             <Route path='/news' element={<News />} />
             <Route path='/music' element={<Music />} />
@@ -36,14 +33,7 @@ const App = (props) => {
         </div>
       </div>
     </BrowserRouter>
-
-
   );
 }
-
-
-
-
-
 
 export default App;
