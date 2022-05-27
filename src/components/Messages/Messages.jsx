@@ -1,4 +1,5 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import classes from './Messages.module.css';
@@ -25,13 +26,14 @@ const Messages = (props) => {
 
   let messageElement = props.messagePage.map((message) => {
     return (
-      <Message message={message.message} key = {message.id} />
+      <Message message={message.message} key={message.id} />
 
     )
   })
 
   let newMessageBody = state.newMessageBody;
 
+  if (!props.isAuth) return <Navigate to={"/login"} />
 
   return (
 
@@ -45,7 +47,7 @@ const Messages = (props) => {
           {messageElement}
         </div>
         <div>
-          <textarea  onChange={onNewMessageClick} value={newMessageBody} ></textarea>
+          <textarea onChange={onNewMessageClick} value={newMessageBody} ></textarea>
         </div>
         <div>
           <button onClick={onSendMessageClick} > Отправить новое сообщение</button>

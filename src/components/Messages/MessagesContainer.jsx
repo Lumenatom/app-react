@@ -8,8 +8,9 @@ let mapStateProps = (state) => {
   return {
     dialogsElement: state.messagePage.dialogsData,
     messagePage: state.messagePage.messagesData,
-    newMessageBody: state.newMessageBody
-    
+    newMessageBody: state.newMessageBody,
+    isAuth: state.auth.isAuth
+
   }
 }
 
@@ -17,7 +18,7 @@ let mapDispatchToProps = (dispatch) => {
   return {
     sendMessage: () => {
       dispatch(sendMessageCreator());
-      
+
     },
     updateNewMessageBody: (body) => {
       dispatch(updateNewMessageBodyCreator(body))
@@ -28,4 +29,3 @@ let mapDispatchToProps = (dispatch) => {
 const MessagesContainer = connect(mapStateProps, mapDispatchToProps)(Messages);
 
 export default MessagesContainer;
- 
