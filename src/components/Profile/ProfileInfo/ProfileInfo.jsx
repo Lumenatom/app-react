@@ -26,7 +26,7 @@ const ProfileInfo = (props) => {
                         Github: {props.profile.contacts.github}<br />
                     </div>
                 </div>
-                <ProfileStatus status={"This my first status|||"} />
+                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
                 {/* <img className={classes.img} src='https://static.vecteezy.com/system/resources/previews/002/205/989/large_2x/user-profile-icon-free-vector.jpg' />
                 <div className={classes.about_me}>
                     <h2>
