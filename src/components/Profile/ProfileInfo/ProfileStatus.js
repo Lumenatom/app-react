@@ -1,3 +1,4 @@
+import { logDOM } from "@testing-library/react";
 import React from "react";
 import classes from "./ProfileStatus.module.css"
 
@@ -8,7 +9,8 @@ class ProfileStatus extends React.Component {
         editMode: false
     }
 
-    activeteEditMode() {
+    activeteEditMode = () => {
+        console.log(this);
         this.setState({
             editMode: true
         })
@@ -25,7 +27,7 @@ class ProfileStatus extends React.Component {
                 {!this.state.editMode &&
                     <div className={classes.statusInp}>
                         <h2>Status:</h2>
-                        <span onDoubleClick={this.activeteEditMode.bind(this)}>
+                        <span onDoubleClick={this.activeteEditMode}>
                             {this.props.status}</span>
                     </div>
                 }

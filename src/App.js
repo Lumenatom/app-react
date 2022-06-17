@@ -1,8 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Route, Router, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
-import Login from './components/Login/Login';
 import MessagesContainer from './components/Messages/MessagesContainer';
 import Music from './components/Music/Music';
 import Navbar from './components/Navbar/Navbar';
@@ -13,7 +12,7 @@ import UsersContainer from './components/Users/UsersContainer';
 import LoginPage from './components/Login/Login';
 
 
-const App = (props) => {
+const App = () => {
   return (
     < BrowserRouter>
       <div className='app-wraper'>
