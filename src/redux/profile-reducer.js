@@ -12,7 +12,7 @@ let initialState = {
         { id: 2, message: 'pbsdsd', likeCount: 234 },
         { id: 3, message: 'How are you??????' },
     ],
-    newPostText: '',
+
     profile: null,
     staus: '',
 };
@@ -21,7 +21,7 @@ export const profileReducer = (state = initialState, action) => {
         case ADD_POST:
             let newPost = {
                 id: 5,
-                message: state.newPostText,
+                message: action.newPostText,
                 likeCount: 0
             };
             let stateCopy = { ...state };
@@ -29,11 +29,7 @@ export const profileReducer = (state = initialState, action) => {
             stateCopy.postsData.unshift(newPost);
             stateCopy.newPostText = '';
             return stateCopy;
-        case UPDATE_NEW_POST_TEXT: {
-            stateCopy = { ...state }
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
-        }
+
         case SET_USER_PROFILE: {
             return { ...state, profile: action.profile }
         }
@@ -45,7 +41,7 @@ export const profileReducer = (state = initialState, action) => {
     }
 }
 
-export const addPostActionCreator = () => ({ type: ADD_POST })
+export const addPostActionCreator = (newPostText) => ({ type: ADD_POST, newPostText })
 export const setUserProfile = (profile) => ({ type: SET_USER_PROFILE, profile })
 export const setStatus = (status) => ({ type: SET_STATUS, status })
 
@@ -69,7 +65,6 @@ export const updateStatus = (status) => (dispatch) => {
     )
 }
 
-export const updateNewPostTextActionCreator = (text) =>
-    ({ type: UPDATE_NEW_POST_TEXT, newText: text })
+
 
 
