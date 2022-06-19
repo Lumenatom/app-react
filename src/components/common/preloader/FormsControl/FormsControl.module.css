@@ -1,0 +1,8 @@
+.formControl input,
+.formControl textarea {
+    border: 2px red solid;
+}
+
+.formControl span {
+    color: red;
+}
