@@ -18,6 +18,7 @@ const LoginForm = (props) => {
                 name={"password"} type="password" placeholder="Password" />
             <Field component={Input}
                 name={"rememberMe"} type="checkbox" /> remember me
+            {props.error && <div>{props.error}</div>}
             <button>Submit</button>
         </form>
     )
