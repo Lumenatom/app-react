@@ -19,7 +19,7 @@ let Users = (props) => {
                 <div className={style.countPage}>{
                     pages.map(p => {
                         return <div className={props.currentPage === p && style.selectedPage}
-                            onClick={(e) => { props.onPageChanged(p); }}> {p}</div>
+                            onClick={(e) => { props.onPageChanged(p) }}> {p}</div>
                     })
                 }</div>
             </div>
