@@ -2,6 +2,7 @@ import React from "react";
 import Preloader from "../../common/preloader/Preloader";
 import classes from "./ProfileInfo.module.css"
 import ProfileStatus from "./ProfileStatus";
+import ProfileStatusWithHooks from "./ProfileStatusWithHooks";
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -26,7 +27,7 @@ const ProfileInfo = (props) => {
                         Github: {props.profile.contacts.github}<br />
                     </div>
                 </div>
-                <ProfileStatus status={props.status} updateStatus={props.updateStatus} />
+                <ProfileStatusWithHooks status={props.status} updateStatus={props.updateStatus} />
                 {/* <img className={classes.img} src='https://static.vecteezy.com/system/resources/previews/002/205/989/large_2x/user-profile-icon-free-vector.jpg' />
                 <div className={classes.about_me}>
                     <h2>
